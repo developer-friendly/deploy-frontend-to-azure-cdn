@@ -46,9 +46,6 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
+            az account show
             az storage blob upload-batch --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} -d '$web' -s dist
-      - name: Purge CDN
-        uses: azure/cli@v2
-        with:
-          inlineScript: |
             az cdn endpoint purge --content-paths  "/*" --profile-name ${{ secrets.CDN_PROFILE_NAME }} --name ${{ secrets.CDN_ENDPOINT }} --resource-group ${{ secrets.CDN_RESOURCE_GROUP }}
