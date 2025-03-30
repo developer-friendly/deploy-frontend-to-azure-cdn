@@ -43,9 +43,6 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       - name: Upload to blob storage
-        uses: azure/CLI@v2
-        with:
-          azcliversion: latest        
-          inlineScript: |
-            az storage blob upload-batch --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} -d '$web' -s .
-            az cdn endpoint purge --content-paths  "/*" --profile-name ${{ secrets.CDN_PROFILE_NAME }} --name ${{ secrets.CDN_ENDPOINT }} --resource-group ${{ secrets.CDN_RESOURCE_GROUP }}
+        run: |
+          az storage blob upload-batch --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} -d '$web' -s .
+          az cdn endpoint purge --content-paths  "/*" --profile-name ${{ secrets.CDN_PROFILE_NAME }} --name ${{ secrets.CDN_ENDPOINT }} --resource-group ${{ secrets.CDN_RESOURCE_GROUP }}
