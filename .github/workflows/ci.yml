@@ -47,4 +47,4 @@ jobs:
         with:
           inlineScript: |
             az account show
-            az storage blob sync --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --auth-mode login -c '$web' -s dist --delete-destination true
+            az storage blob sync --auth-mode login --delete-destination true --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} -c '$web' -s dist
