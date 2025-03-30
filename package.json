@@ -1,0 +1,11 @@
+{
+  "name": "deploy-frontend-to-azure-cdn",
+  "module": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
