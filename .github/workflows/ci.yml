@@ -45,6 +45,7 @@ jobs:
       - name: Upload to blob storage
         uses: azure/CLI@v2
         with:
+          azcliversion: latest        
           inlineScript: |
             az storage blob upload-batch --account-name ${{ secrets.STORAGE_ACCOUNT_NAME }} --auth-mode key -d '$web' -s .
             az cdn endpoint purge --content-paths  "/*" --profile-name ${{ secrets.CDN_PROFILE_NAME }} --name ${{ secrets.CDN_ENDPOINT }} --resource-group ${{ secrets.CDN_RESOURCE_GROUP }}
