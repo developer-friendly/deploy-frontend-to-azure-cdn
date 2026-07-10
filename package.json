@@ -10,6 +10,6 @@
     "build": "vite build"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0 || ^7.0.0"
   }
 }
