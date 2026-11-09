@@ -4,7 +4,7 @@
   "type": "module",
   "devDependencies": {
     "@types/bun": "latest",
-    "vite": "^6.2.3"
+    "vite": "^8.0.0"
   },
   "scripts": {
     "build": "vite build"
